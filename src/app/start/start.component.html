@@ -1,0 +1,34 @@
+<!-- START BY ASKING FOR EMAIL -->
+
+<div *ngIf="!showJoin" class="main-content">
+    <div class="main-content-text">
+        <h3>Get started on Company</h3>
+        <p>Enter your work email</p>
+    </div>
+        <div class="input-wrapper">
+            <input name="primaryEmail" [ngModel]="email" email #prmEmail="ngModel" class="input-box" [ngClass]="{'error-input-box': userExists}" placeholder="name@company.com" (keyup.enter)="(!prmEmail.errors?.email) ? onClick(prmEmail.value) : null">
+            <cwa-user-exists-error *ngIf="userExists"></cwa-user-exists-error>
+        </div>
+        <a [ngClass]="{'disabled': prmEmail.errors?.email}" class="button content-btn" (click)="onClick(prmEmail.value)">NEXT</a>
+</div>
+
+<!-- SHOW MODAL IF USER ALREADY EXISTS -->
+<cwa-modal (close)="closeModal()" *ngIf="displayModal"></cwa-modal>
+
+<!-- SHOW PAGE FOR JOINING CURRENT COMPANY -->
+<div *ngIf="showJoin" class="main-content">
+    <div class="main-content-text">
+        <h3>Join the Company team</h3>
+        <p>Your email is associated with an existing company. Fill out the information below to finish the setup.</p>
+    </div>
+    <form #f="ngForm" class="input-container">
+            <input [(ngModel)]= 'firstName' id="first" name="first" type="text" placeholder="First Name" class="input-box" required>
+            <input [(ngModel)]= 'lastName' id="last" name="last" type="text" placeholder="Last Name" class="input-box" required>
+            <input [(ngModel)]= 'displayName' id="displayName" name="displayName" class="full-line-input input-box" type="text" placeholder="Display Name">
+            <input [(ngModel)]= 'password' id="password" name="password" class="full-line-input input-box" type="password" placeholder="Password" required>
+        </form>
+        <a (click)="createUser()" class="button content-btn">SIGN UP</a>
+    <p class="footnote">By selecting Sign Up, you agree to our
+        <a routerLink="/tc">Terms & Conditions</a>
+    </p>
+</div>

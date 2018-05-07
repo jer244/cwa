@@ -1,0 +1,232 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-blue: #2b9db7;
+    --main-light-color: rgba(250, 250, 250, 1);
+    --content-font-color: rgba(100, 100, 100, 0.7);
+    --content-border-color: rgba(175, 175, 175, 0.7);
+    --error-red: rgb(190, 60, 60);
+}
+
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: var(--main-blue);
+    font-family: sans-serif;
+}
+
+input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 2px;
+    height: 1em;
+    width: 1em;
+    border: 1px solid var(--content-font-color);
+    border-radius: 50%;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+input[type=radio]:checked {
+    border: 2px solid var(--main-light-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px orange;
+    height: 1.1em;
+    width: 1.1em;
+    background: orange;
+}
+
+.input-box {
+    border: 1px solid var(--content-border-color);
+    color: var(--content-font-color);
+    padding: 1em;
+    width: 100%;
+    position: relative;
+}
+
+input[type=radio]:checked+label {
+    font-weight: bold;
+    color: rgba(100, 100, 100);
+}
+
+:focus {
+    outline: none;
+}
+
+label {
+    color: var(--content-font-color);
+    font-size: 0.8em;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-light-color);
+}
+
+.button {
+    text-decoration: none;
+    color: var(--main-light-color);
+    border-radius: 1.5em;
+    padding: 0.5em 2.5em;
+    font-weight: 600;
+    margin: 0 0.5em;
+}
+
+.button.login-btn {
+    border: 1px solid var(--main-light-color);
+}
+
+.button.content-btn {
+    background-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+    width: 40%;
+    align-self: flex-end;
+    margin-top: 1.5em;
+    padding: 1em;
+    text-align: center;
+}
+
+.main-content {
+    position: relative;
+    bottom: 2px;
+    min-height: 30vh;
+    width: 35vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--main-light-color);
+    padding: 1.5em 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.main-content-text {
+    color: var(--content-font-color);
+    border-bottom: 1px solid var(--content-border-color);
+    margin-bottom: 1.5em;
+}
+
+.main-content-text p {
+    font-size: 0.85em;
+    line-height: 1.4;
+    margin-top: -0.5em;
+    font-weight: 200;
+}
+
+
+.input-container-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    width: 100%;
+    grid-gap: 8px;
+}
+
+.full-line-input {
+    grid-column: span 2;
+}
+
+.tags-container {
+    width: 100%;
+    min-height: 3em;
+    color: var(--content-font-color);
+    padding: 0.8em;
+    border: 1px solid var(--content-border-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+    margin: 15px 0;
+}
+
+.tag {
+    grid-column: span 1;
+    border: 1px solid var(--content-border-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 1.8em;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 0.5em;
+}
+
+.tag:hover .round-close-button {
+    border: 2px solid var(--error-red);
+    color: var(--error-red);
+}
+
+.tag:hover .tag-content {
+    font-weight: bold;
+}
+
+.tag-content {
+    flex: 4;
+    font-size: 0.8em;
+}
+
+.round-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--content-border-color);
+    border-radius: 50%;
+    color: var(--content-border-color);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.footnote {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    color: var(--main-light-color);
+    font-size: 0.7em;
+    font-weight: 100;
+    text-align: center;
+}
+
+.footnote a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--main-light-color);
+}
+
+.input-wrapper {
+    position: relative;
+}
+.input-box.error-input-box {
+    border: 1px solid var(--error-red);
+}

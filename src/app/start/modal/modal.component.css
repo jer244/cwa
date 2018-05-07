@@ -1,0 +1,51 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: relative;
+    height: 45vh;
+    width: 30vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: var(--content-font-color);
+    text-align: center;
+    background-color: var(--main-light-color);
+    padding: 3em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 3px;
+}
+
+.modal-content p {
+    line-height: 170%;
+}
+
+.email-pic {
+    background: var(--main-blue) URL("./assets/email.png") no-repeat center;
+    background-size: 50%;
+    border-radius: 50%;
+    width: 40%;
+    padding-top: 40%;
+    align-self: center;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    text-decoration: none;
+    color: var(--main-light-color);
+    margin: 3px;
+    font-weight: 600;
+    align-self: flex-end;
+    font-style: italic;
+}

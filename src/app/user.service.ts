@@ -1,0 +1,29 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor(private http: HttpClient, private router: Router) { }
+
+  checkEmail(email: String) {
+    return this.http.get(`/api/checkuser/${email}`);
+  }
+
+  checkCompany(company: String) {
+    return this.http.get(`/api/checkcompany/${company}`);
+  }
+
+  createUser(user: any) {
+    return this.http.post('/api/newUser', user);
+  }
+
+  // router.get('/checkuser/:email', checkUser);
+  // router.get('/checkcompany/:company', checkCompany);
+  // router.post('/newUser', newUser);
+}

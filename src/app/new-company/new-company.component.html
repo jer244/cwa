@@ -1,0 +1,57 @@
+<!--  GET PERSONAL INFO -->
+
+<div *ngIf="getPersonalInfo" class="main-content">
+    <div class="main-content-text">
+        <h3>Get started on Company</h3>
+        <p>Your email wasn't associated with an existing company. Fill out the information below to create a new one.</p>
+    </div>
+    <form #f="ngForm" class="input-container">
+        <input [(ngModel)]='firstName' id="first" name="first" type="text" placeholder="First Name" class="input-box" required>
+        <input [(ngModel)]='lastName' id="last" name="last" type="text" placeholder="Last Name" class="input-box" required>
+        <input [(ngModel)]='displayName' id="displayName" name="displayName" class="full-line-input input-box" type="text" placeholder="Display Name">
+        <input [(ngModel)]='password' id="password" name="password" class="full-line-input input-box" type="password" placeholder="Password" required>
+        <div class="input-wrapper full-line-input">
+            <input [(ngModel)]='company' id='company' name="company" class="input-box input-box-error" type="text" placeholder="Company Name" [ngClass]="{'error-input-box': companyExists}" required>
+            <cwa-company-exists-error *ngIf="companyExists"></cwa-company-exists-error>
+        </div>
+    </form>
+    <a (click)="createUser()" class="button content-btn">SIGN UP</a>
+    <p class="footnote">By selecting Sign Up, you agree to our
+        <a routerLink="/tc">Terms & Conditions</a>
+    </p>
+</div>
+
+<!-- GET COMPANY INFO -->
+
+<div *ngIf="!getPersonalInfo" class="main-content">
+    <div class="main-content-text">
+        <h3>Company sign up mode</h3>
+        <p>Anyone with a specified email domain can join your team. Otherwise, an owner or co-owner will have to invite all
+            team members.</p>
+    </div>
+    <div class="input-container-flex">
+        <div class="radio-container">
+            <input type="radio" name="signup-mode" value="open" id="open-mode">
+            <label for="open-mode">Any email from my domains</label>
+        </div>
+        <div class="tags-container">
+            <div class="tag">
+                <p class="tag-content">@example.com</p>
+                <div class="round-close-button">&times;</div>
+            </div>
+            <div class="tag">
+                <p class="tag-content">@example.com</p>
+                <div class="round-close-button">&times;</div>
+            </div>
+            <div class="tag">
+                <p class="tag-content">@example.com</p>
+                <div class="round-close-button">&times;</div>
+            </div>
+        </div>
+        <div class="radio-container">
+            <input type="radio" name="signup-mode" value="invite" id="invite-mode">
+            <label for="invite-mode">Invite Only</label>
+        </div>
+    </div>
+    <a href="./index.html" class="button content-btn">DONE</a>
+</div>
