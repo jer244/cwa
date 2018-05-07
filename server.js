@@ -6,6 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const http = require('http');
 
 /*
 * INSTANTIATE EXPRESS APP
@@ -15,19 +16,12 @@ const app = express();
 /*
 * SERVE STATIC PAGES
 */
-
 app.use(express.static(path.join(__dirname, 'dist/vm-cwa')));
-// app.use(express.static(path.join(__dirname, 'public')));
-
-/*
-* ENABLE STORAGE OF ENV VARIABLES
-*/
-require('dotenv').config();
 
 /* 
 * CONNECT TO MONGO HOST
 */
-mongoose.connect('mongodb://' + process.env.DBUSER + ':' + process.env.DBPASSWORD + '@ds215910.mlab.com:15910/v_cust');
+mongoose.connect('mongodb://test:test@ds215910.mlab.com:15910/v_cust');
 
 /*
 * MIDDLEWARE SETUP
