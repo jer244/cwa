@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/*
+*   SCHEMA TO REPRESENT USER INFO
+*/
 const userSchema = new Schema({
     firstName: String,
     lastName: String,
@@ -9,7 +12,7 @@ const userSchema = new Schema({
         required: false
     },
     email: String,    
-    password: String,  //would usually hash PW but keeping as string for this exercise
+    password: String,  //WOULD USUALLY HASH PW BUT STORING AS STRING FOR THIS EXERCISE
     company: String
 })
 

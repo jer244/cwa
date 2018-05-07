@@ -10,6 +10,7 @@ export class TopBarComponent {
 
   constructor(private router: Router) { }
 
+  //LINK ICON TO NAVIGATE TO HOME PAGE
   refresh() {
     this.router.navigate(['/']);
   }

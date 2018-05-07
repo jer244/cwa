@@ -94,7 +94,7 @@ module.exports = ".main-content-container {\r\n    height: 100%;\r\n    width: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<cwa-top-bar></cwa-top-bar>\n<div class=\"main-content-container\">\n  <router-outlet></router-outlet>\n</div>  \n"
+module.exports = "<!-- DISPLAY TOP BAR -->\n<cwa-top-bar></cwa-top-bar>\n<!-- DISPLAY MAIN CONTENT INSIDE CONTAINER -->\n<div class=\"main-content-container\">\n  <router-outlet></router-outlet>\n</div>  \n"
 
 /***/ }),
 
@@ -220,17 +220,6 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/login/login.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/login/login.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/login/login.component.html":
 /*!********************************************!*\
   !*** ./src/app/login/login.component.html ***!
@@ -238,7 +227,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Dummy Login Link</h3>\n        <p>This is where you would login</p>\n    </div>\n        <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
+module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Dummy Login Link</h3>\n        <p>This is where you would login</p>\n    </div>\n    <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
 
 /***/ }),
 
@@ -266,13 +255,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var LoginComponent = /** @class */ (function () {
     function LoginComponent() {
     }
-    LoginComponent.prototype.ngOnInit = function () {
-    };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cwa-login',
-            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
-            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], LoginComponent);
@@ -301,7 +287,7 @@ module.exports = "\r\n.error-wrapper {\r\n    position: absolute;\r\n    display
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"error-wrapper\">\n  <div class=\"error-box\"><p>That company looks like it already exists. Try to <a routerLink=\"/\" class=\"error-link\">Find My Team</a> using your work email.</p></div>\n  <div class=\"error-bubble\"></div>\n</div>"
+module.exports = "<div class=\"error-wrapper\">\n  <div class=\"error-box\">\n    <p>That company looks like it already exists. Try to\n      <a routerLink=\"/\" class=\"error-link\">Find My Team</a> using your work email.</p>\n  </div>\n  <div class=\"error-bubble\"></div>\n</div>"
 
 /***/ }),
 
@@ -351,7 +337,7 @@ var CompanyExistsErrorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".domain-input {\r\n    border: none;\r\n}"
 
 /***/ }),
 
@@ -362,7 +348,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--  GET PERSONAL INFO -->\n\n<div *ngIf=\"getPersonalInfo\" class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Get started on Company</h3>\n        <p>Your email wasn't associated with an existing company. Fill out the information below to create a new one.</p>\n    </div>\n    <form #f=\"ngForm\" class=\"input-container\">\n        <input [(ngModel)]='firstName' id=\"first\" name=\"first\" type=\"text\" placeholder=\"First Name\" class=\"input-box\" required>\n        <input [(ngModel)]='lastName' id=\"last\" name=\"last\" type=\"text\" placeholder=\"Last Name\" class=\"input-box\" required>\n        <input [(ngModel)]='displayName' id=\"displayName\" name=\"displayName\" class=\"full-line-input input-box\" type=\"text\" placeholder=\"Display Name\">\n        <input [(ngModel)]='password' id=\"password\" name=\"password\" class=\"full-line-input input-box\" type=\"password\" placeholder=\"Password\" required>\n        <div class=\"input-wrapper full-line-input\">\n            <input [(ngModel)]='company' id='company' name=\"company\" class=\"input-box input-box-error\" type=\"text\" placeholder=\"Company Name\" [ngClass]=\"{'error-input-box': companyExists}\" required>\n            <cwa-company-exists-error *ngIf=\"companyExists\"></cwa-company-exists-error>\n        </div>\n    </form>\n    <a (click)=\"createUser()\" class=\"button content-btn\">SIGN UP</a>\n    <p class=\"footnote\">By selecting Sign Up, you agree to our\n        <a routerLink=\"/tc\">Terms & Conditions</a>\n    </p>\n</div>\n\n<!-- GET COMPANY INFO -->\n\n<div *ngIf=\"!getPersonalInfo\" class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Company sign up mode</h3>\n        <p>Anyone with a specified email domain can join your team. Otherwise, an owner or co-owner will have to invite all\n            team members.</p>\n    </div>\n    <div class=\"input-container-flex\">\n        <div class=\"radio-container\">\n            <input type=\"radio\" name=\"signup-mode\" value=\"open\" id=\"open-mode\">\n            <label for=\"open-mode\">Any email from my domains</label>\n        </div>\n        <div class=\"tags-container\">\n            <div class=\"tag\">\n                <p class=\"tag-content\">@example.com</p>\n                <div class=\"round-close-button\">&times;</div>\n            </div>\n            <div class=\"tag\">\n                <p class=\"tag-content\">@example.com</p>\n                <div class=\"round-close-button\">&times;</div>\n            </div>\n            <div class=\"tag\">\n                <p class=\"tag-content\">@example.com</p>\n                <div class=\"round-close-button\">&times;</div>\n            </div>\n        </div>\n        <div class=\"radio-container\">\n            <input type=\"radio\" name=\"signup-mode\" value=\"invite\" id=\"invite-mode\">\n            <label for=\"invite-mode\">Invite Only</label>\n        </div>\n    </div>\n    <a href=\"./index.html\" class=\"button content-btn\">DONE</a>\n</div>"
+module.exports = "<!--  GET PERSONAL INFO -->\n\n<div *ngIf=\"getPersonalInfo\" class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Get started on Company</h3>\n        <p>Your email wasn't associated with an existing company. Fill out the information below to create a new one.</p>\n    </div>\n    <form #f=\"ngForm\" class=\"input-container\">\n        <input [(ngModel)]='firstName' id=\"first\" name=\"first\" type=\"text\" placeholder=\"First Name\" class=\"input-box\" required>\n        <input [(ngModel)]='lastName' id=\"last\" name=\"last\" type=\"text\" placeholder=\"Last Name\" class=\"input-box\" required>\n        <input [(ngModel)]='displayName' id=\"displayName\" name=\"displayName\" class=\"full-line-input input-box\" type=\"text\" placeholder=\"Display Name\">\n        <input [(ngModel)]='password' id=\"password\" name=\"password\" class=\"full-line-input input-box\" type=\"password\" placeholder=\"Password\" required>\n        <div class=\"input-wrapper full-line-input\">\n            <input [(ngModel)]='company' id='company' name=\"company\" class=\"input-box input-box-error\" type=\"text\" placeholder=\"Company Name\" [ngClass]=\"{'error-input-box': companyExists}\" required>\n            <cwa-company-exists-error *ngIf=\"companyExists\"></cwa-company-exists-error>\n        </div>\n    </form>\n    <a (click)=\"createUser()\" class=\"button content-btn\">SIGN UP</a>\n    <p class=\"footnote\">By selecting Sign Up, you agree to our\n        <a routerLink=\"/tc\">Terms & Conditions</a>\n    </p>\n</div>\n\n<!-- GET COMPANY INFO -->\n\n<div *ngIf=\"!getPersonalInfo\" class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Company sign up mode</h3>\n        <p>Anyone with a specified email domain can join your team. Otherwise, an owner or co-owner will have to invite all\n            team members.</p>\n    </div>\n    <div class=\"input-container-flex\">\n        <div class=\"radio-container\">\n            <input type=\"radio\" name=\"signup-mode\" id=\"open-mode\" [(ngModel)]=\"companyMode\" value=\"open\">\n            <label for=\"open-mode\">Any email from my domains</label>\n        </div>\n        <div class=\"tags-container\">\n            <div *ngFor=\"let domain of domains; index as i\" class=\"tag\">\n                <p class=\"tag-content\">{{domain}}</p>\n                <div class=\"round-close-button\" (click)=\"removeTag(i)\">&times;</div>\n            </div>\n            <input class=\"domain-input\" name=\"domain\" [(ngModel)]=\"domainValue\" (keyup.enter)=\"addTag()\">\n        </div>\n        <div class=\"radio-container\">\n            <input type=\"radio\" name=\"signup-mode\" id=\"invite-mode\" [(ngModel)]=\"companyMode\" value=\"invite\">\n            <label for=\"invite-mode\">Invite Only</label>\n        </div>\n    </div>\n    <a (click)=\"onSave()\" class=\"button content-btn\">DONE</a>\n</div>"
 
 /***/ }),
 
@@ -392,9 +378,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var NewCompanyComponent = /** @class */ (function () {
-    function NewCompanyComponent(userService, route) {
+    function NewCompanyComponent(userService, route, router) {
         this.userService = userService;
         this.route = route;
+        this.router = router;
+        this.domains = [];
         this.getPersonalInfo = true;
         this.companyExists = false;
         this.company = '';
@@ -404,6 +392,8 @@ var NewCompanyComponent = /** @class */ (function () {
         this.displayName = '';
         this.password = '';
         this.email = '';
+        this.domainValue = '';
+        this.companyMode = '';
         this.email = route.snapshot.params['email'];
     }
     NewCompanyComponent.prototype.createUser = function () {
@@ -427,16 +417,54 @@ var NewCompanyComponent = /** @class */ (function () {
                     .subscribe(function (data) {
                     alert("New User Created - " + JSON.stringify(data));
                     _this.getPersonalInfo = false;
-                    _this.company = '';
-                    _this.alias = '';
-                    _this.firstName = '';
-                    _this.lastName = '';
-                    _this.displayName = '';
-                    _this.password = '';
-                    _this.email = '';
                 });
             }
         });
+    };
+    NewCompanyComponent.prototype.removeTag = function (index) {
+        this.domains.splice(index, 1);
+    };
+    NewCompanyComponent.prototype.addTag = function () {
+        this.domains.push(this.domainValue);
+        this.domainValue = '';
+    };
+    //WHEN COMPANYMODE IS OPEN (AS OPPOSED TO INVITE ONLY), ADD DOMAINS FROM ALL TAGS
+    NewCompanyComponent.prototype.onSave = function () {
+        var _this = this;
+        var counter = 0;
+        //MAKE SURE MODE IS SELECTED
+        if (this.companyMode == '') {
+            alert('please select a mode');
+            return;
+        }
+        else if (this.companyMode == 'invite') {
+            alert('Company saved');
+            this.reset();
+        }
+        else {
+            this.domains.forEach(function (domain) {
+                _this.userService.addDomain(domain, _this.company)
+                    .subscribe(function () {
+                    counter++;
+                    console.log(counter);
+                    if (counter == _this.domains.length) {
+                        alert('Domains Saved');
+                        _this.reset();
+                    }
+                });
+            });
+        }
+    };
+    //RESET VARIABLES AND NAVIGATE TO HOME PAGE
+    NewCompanyComponent.prototype.reset = function () {
+        this.company = '';
+        this.alias = '';
+        this.firstName = '';
+        this.lastName = '';
+        this.displayName = '';
+        this.password = '';
+        this.email = '';
+        this.router.navigate(['/']);
     };
     NewCompanyComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -444,23 +472,12 @@ var NewCompanyComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./new-company.component.html */ "./src/app/new-company/new-company.component.html"),
             styles: [__webpack_require__(/*! ./new-company.component.css */ "./src/app/new-company/new-company.component.css")]
         }),
-        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], NewCompanyComponent);
     return NewCompanyComponent;
 }());
 
 
-
-/***/ }),
-
-/***/ "./src/app/pwreset/pwreset.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/pwreset/pwreset.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -471,7 +488,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Dummy Password Reset Link</h3>\n        <p>This is where you would change your password</p>\n    </div>\n        <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
+module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Dummy Password Reset Link</h3>\n        <p>This is where you would change your password</p>\n    </div>\n    <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
 
 /***/ }),
 
@@ -499,13 +516,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var PwresetComponent = /** @class */ (function () {
     function PwresetComponent() {
     }
-    PwresetComponent.prototype.ngOnInit = function () {
-    };
     PwresetComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cwa-pwreset',
-            template: __webpack_require__(/*! ./pwreset.component.html */ "./src/app/pwreset/pwreset.component.html"),
-            styles: [__webpack_require__(/*! ./pwreset.component.css */ "./src/app/pwreset/pwreset.component.css")]
+            template: __webpack_require__(/*! ./pwreset.component.html */ "./src/app/pwreset/pwreset.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], PwresetComponent);
@@ -534,7 +548,7 @@ module.exports = ".modal-container {\r\n    position: fixed;\r\n    top: 0;\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal-container\">\n  <div class=\"modal-content\">\n          <a (click)=\"close.emit()\" class=\"modal-close\">CLOSE X</a>\n      <div class=\"email-pic\"></div>\n      <h3>That looks familiar</h3>\n      <p>That email looks like it's part of an existing company. Check your email for an invite to your company.</p>\n  </div>\n</div>"
+module.exports = "<div class=\"modal-container\">\n  <div class=\"modal-content\">\n    <a (click)=\"close.emit()\" class=\"modal-close\">CLOSE X</a>\n    <div class=\"email-pic\"></div>\n    <h3>That looks familiar</h3>\n    <p>That email looks like it's part of an existing company. Check your email for an invite to your company.</p>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -561,10 +575,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ModalComponent = /** @class */ (function () {
     function ModalComponent() {
+        //TRIGGER CLOSE MODAL IN PARENT COMPONENT TO CONTROL PARENT COMPONENT STATE
         this.close = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
-    ModalComponent.prototype.ngOnInit = function () {
-    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -581,17 +594,6 @@ var ModalComponent = /** @class */ (function () {
 }());
 
 
-
-/***/ }),
-
-/***/ "./src/app/start/start.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/start/start.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -636,6 +638,7 @@ var StartComponent = /** @class */ (function () {
         this.userService = userService;
         this.router = router;
     }
+    //RESET VARIABLES ON PAGE LOAD
     StartComponent.prototype.ngOnInit = function () {
         this.displayModal = false;
         this.userExists = false;
@@ -648,25 +651,31 @@ var StartComponent = /** @class */ (function () {
         this.password = '';
         this.email = '';
     };
+    //WHEN NEXT BUTTON PUSHED, CHECK IF EMAIL OR DOMAIN ARE IN USE
     StartComponent.prototype.onClick = function (email) {
         var _this = this;
         this.email = email;
+        //CHECK IF EMAIL IS ALREADY IN USE
         this.userService.checkEmail(email)
             .subscribe(function (data) {
             if (data.userExists == true) {
+                //EMAIL IN USE - THROW ERROR STATE
                 _this.userExists = true;
                 return;
             }
             if (data.companyExists == true) {
+                //COMPANY ALREADY EXISTS - DIRECT TO ADD USER TO EXISTING COMPANY
                 _this.company = data.company.parent;
                 _this.alias = data.company.alias;
                 _this.displayModal = true;
                 return;
             }
+            //IF EMAIL AND DOMAIN ARE NEW
             _this.router.navigate(["/new/" + _this.email]);
         });
         ;
     };
+    //REMOVE MODAL FROM SCREEN AND SHOW FORM FOR NEW USER TO EXISTING COMPANY
     StartComponent.prototype.closeModal = function () {
         this.displayModal = false;
         this.showJoin = true;
@@ -674,6 +683,7 @@ var StartComponent = /** @class */ (function () {
     };
     StartComponent.prototype.createUser = function () {
         var _this = this;
+        //CONSTRUCT USER
         var newUser = {
             firstName: this.firstName,
             lastName: this.lastName,
@@ -682,6 +692,7 @@ var StartComponent = /** @class */ (function () {
             password: this.password,
             company: this.company
         };
+        //SAVE USER AND RESET FORM
         this.userService.createUser(newUser)
             .subscribe(function (data) {
             alert("New User Created - " + JSON.stringify(data));
@@ -698,8 +709,7 @@ var StartComponent = /** @class */ (function () {
     StartComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cwa-start',
-            template: __webpack_require__(/*! ./start.component.html */ "./src/app/start/start.component.html"),
-            styles: [__webpack_require__(/*! ./start.component.css */ "./src/app/start/start.component.css")]
+            template: __webpack_require__(/*! ./start.component.html */ "./src/app/start/start.component.html")
         }),
         __metadata("design:paramtypes", [_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], StartComponent);
@@ -756,8 +766,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UserExistsErrorComponent = /** @class */ (function () {
     function UserExistsErrorComponent() {
     }
-    UserExistsErrorComponent.prototype.ngOnInit = function () {
-    };
     UserExistsErrorComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cwa-user-exists-error',
@@ -773,17 +781,6 @@ var UserExistsErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/tc/tc.component.css":
-/*!*************************************!*\
-  !*** ./src/app/tc/tc.component.css ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/tc/tc.component.html":
 /*!**************************************!*\
   !*** ./src/app/tc/tc.component.html ***!
@@ -791,7 +788,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Legal Ipsum</h3>\n        <p>In other words, you may use, reproduce, display, perform, sublicense and distribute the Program originate from and are distributed by the Recipient, this Agreement or Distributor's own license agreement, such license applies only to the extent it does not give you the right to change the software accompanying this Agreement as released by, including source code, documentation source, and configuration files for the physical act of running the Standard Version, and of any installation facilities provided by the Copyright Holder. This license has been modified. If you obtain such knowledge after the cause of action arose.</p>\n    </div>\n        <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
+module.exports = "<div class=\"main-content\">\n    <div class=\"main-content-text\">\n        <h3>Legal Ipsum</h3>\n        <p>In other words, you may use, reproduce, display, perform, sublicense and distribute the Program originate from and\n            are distributed by the Recipient, this Agreement or Distributor's own license agreement, such license applies\n            only to the extent it does not give you the right to change the software accompanying this Agreement as released\n            by, including source code, documentation source, and configuration files for the physical act of running the\n            Standard Version, and of any installation facilities provided by the Copyright Holder. This license has been\n            modified. If you obtain such knowledge after the cause of action arose.</p>\n    </div>\n    <a routerLink=\"/\" class=\"button content-btn\">HOME</a>\n</div>"
 
 /***/ }),
 
@@ -819,13 +816,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TcComponent = /** @class */ (function () {
     function TcComponent() {
     }
-    TcComponent.prototype.ngOnInit = function () {
-    };
     TcComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cwa-tc',
-            template: __webpack_require__(/*! ./tc.component.html */ "./src/app/tc/tc.component.html"),
-            styles: [__webpack_require__(/*! ./tc.component.css */ "./src/app/tc/tc.component.css")]
+            template: __webpack_require__(/*! ./tc.component.html */ "./src/app/tc/tc.component.html")
         }),
         __metadata("design:paramtypes", [])
     ], TcComponent);
@@ -854,7 +848,7 @@ module.exports = ".top-bar {\r\n    position: absolute;\r\n    top: 0;\r\n    le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"top-bar\">\n  <a (click)=\"refresh()\" class=\"logo\"></a>\n  <div class=\"btn-container\">\n      <p>Already have an account?</p>\n      <a routerLink=\"/login\" class=\"button login-btn\">LOG IN</a>\n  </div>\n</div>"
+module.exports = "<div class=\"top-bar\">\n  <a (click)=\"refresh()\" class=\"logo\"></a>\n  <div class=\"btn-container\">\n    <p>Already have an account?</p>\n    <a routerLink=\"/login\" class=\"button login-btn\">LOG IN</a>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -885,6 +879,7 @@ var TopBarComponent = /** @class */ (function () {
     function TopBarComponent(router) {
         this.router = router;
     }
+    //LINK ICON TO NAVIGATE TO HOME PAGE
     TopBarComponent.prototype.refresh = function () {
         this.router.navigate(['/']);
     };
@@ -933,6 +928,9 @@ var UserService = /** @class */ (function () {
         this.http = http;
         this.router = router;
     }
+    /*
+    *   USE SERVICE TO MAKE HTTP CALLS TO API
+    */
     UserService.prototype.checkEmail = function (email) {
         return this.http.get("/api/checkuser/" + email);
     };
@@ -941,6 +939,13 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.createUser = function (user) {
         return this.http.post('/api/newUser', user);
+    };
+    UserService.prototype.addDomain = function (domain, parent) {
+        var alias = {
+            domain: domain,
+            parent: parent
+        };
+        return this.http.post('/api/addDomain', alias);
     };
     UserService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

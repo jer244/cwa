@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cwa-pwreset',
-  templateUrl: './pwreset.component.html',
-  styleUrls: ['./pwreset.component.css']
+  templateUrl: './pwreset.component.html'
 })
-export class PwresetComponent implements OnInit {
+export class PwresetComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

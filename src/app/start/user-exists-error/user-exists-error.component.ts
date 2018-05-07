@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './user-exists-error.component.html',
   styleUrls: ['./user-exists-error.component.css']
 })
-export class UserExistsErrorComponent implements OnInit {
+export class UserExistsErrorComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

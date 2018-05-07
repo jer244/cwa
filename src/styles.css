@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 :root {
     --main-blue: #2b9db7;
     --main-light-color: rgba(250, 250, 250, 1);
@@ -138,7 +139,6 @@ label {
     font-weight: 200;
 }
 
-
 .input-container-flex {
     display: flex;
     flex-direction: column;
@@ -227,6 +227,7 @@ label {
 .input-wrapper {
     position: relative;
 }
+
 .input-box.error-input-box {
     border: 1px solid var(--error-red);
 }

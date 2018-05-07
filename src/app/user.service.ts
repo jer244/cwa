@@ -11,6 +11,10 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+/*
+*   USE SERVICE TO MAKE HTTP CALLS TO API
+*/
+
   checkEmail(email: String) {
     return this.http.get(`/api/checkuser/${email}`);
   }
@@ -23,7 +27,11 @@ export class UserService {
     return this.http.post('/api/newUser', user);
   }
 
-  // router.get('/checkuser/:email', checkUser);
-  // router.get('/checkcompany/:company', checkCompany);
-  // router.post('/newUser', newUser);
+  addDomain(domain: String, parent: String) {
+    let alias = {
+      domain: domain, 
+      parent: parent
+    }
+      return this.http.post('/api/addDomain', alias);
+  }
 }

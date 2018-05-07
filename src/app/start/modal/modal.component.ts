@@ -5,12 +5,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  //TRIGGER CLOSE MODAL IN PARENT COMPONENT TO CONTROL PARENT COMPONENT STATE
   @Output() close = new EventEmitter();
+  
 }

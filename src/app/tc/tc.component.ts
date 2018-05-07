@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cwa-tc',
-  templateUrl: './tc.component.html',
-  styleUrls: ['./tc.component.css']
+  templateUrl: './tc.component.html'
 })
-export class TcComponent implements OnInit {
+export class TcComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

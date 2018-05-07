@@ -31,27 +31,20 @@
     </div>
     <div class="input-container-flex">
         <div class="radio-container">
-            <input type="radio" name="signup-mode" value="open" id="open-mode">
+            <input type="radio" name="signup-mode" id="open-mode" [(ngModel)]="companyMode" value="open">
             <label for="open-mode">Any email from my domains</label>
         </div>
         <div class="tags-container">
-            <div class="tag">
-                <p class="tag-content">@example.com</p>
-                <div class="round-close-button">&times;</div>
+            <div *ngFor="let domain of domains; index as i" class="tag">
+                <p class="tag-content">{{domain}}</p>
+                <div class="round-close-button" (click)="removeTag(i)">&times;</div>
             </div>
-            <div class="tag">
-                <p class="tag-content">@example.com</p>
-                <div class="round-close-button">&times;</div>
-            </div>
-            <div class="tag">
-                <p class="tag-content">@example.com</p>
-                <div class="round-close-button">&times;</div>
-            </div>
+            <input class="domain-input" name="domain" [(ngModel)]="domainValue" (keyup.enter)="addTag()">
         </div>
         <div class="radio-container">
-            <input type="radio" name="signup-mode" value="invite" id="invite-mode">
+            <input type="radio" name="signup-mode" id="invite-mode" [(ngModel)]="companyMode" value="invite">
             <label for="invite-mode">Invite Only</label>
         </div>
     </div>
-    <a href="./index.html" class="button content-btn">DONE</a>
+    <a (click)="onSave()" class="button content-btn">DONE</a>
 </div>
