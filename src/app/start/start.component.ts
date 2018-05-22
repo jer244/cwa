@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'cwa-start',
   templateUrl: './start.component.html'
@@ -82,6 +81,7 @@ export class StartComponent implements OnInit{
     this.userService.createUser(newUser)
       .subscribe((data) => {
         alert(`New User Created - ${JSON.stringify(data)}`);
+        //RESET
         this.showJoin = false;
         this.company = '';
         this.alias = '';
